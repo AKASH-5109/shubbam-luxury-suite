@@ -4,41 +4,53 @@
 
 @layer base {
   :root {
-    --background: 30 33% 97%;
-    --foreground: 0 0% 13%;
+    /* ── Logo-matched palette: Rich Chocolate Brown + Cream White ── */
+    --background: 30 25% 96%;
+    --foreground: 20 18% 15%;
 
-    --card: 30 33% 97%;
-    --card-foreground: 0 0% 13%;
+    --card: 30 20% 94%;
+    --card-foreground: 20 18% 15%;
 
-    --popover: 30 33% 97%;
-    --popover-foreground: 0 0% 13%;
+    --popover: 30 25% 96%;
+    --popover-foreground: 20 18% 15%;
 
-    --primary: 25 67% 30%;
-    --primary-foreground: 36 45% 93%;
+    /* Deep chocolate brown from logo background */
+    --primary: 12 32% 28%;
+    --primary-foreground: 36 45% 95%;
 
-    --secondary: 33 38% 90%;
-    --secondary-foreground: 0 0% 13%;
+    /* Warm cream for secondary surfaces */
+    --secondary: 30 28% 91%;
+    --secondary-foreground: 20 18% 15%;
 
-    --muted: 33 20% 92%;
-    --muted-foreground: 20 10% 45%;
+    --muted: 28 18% 88%;
+    --muted-foreground: 20 12% 48%;
 
-    --accent: 37 40% 60%;
-    --accent-foreground: 0 0% 13%;
+    /* Rich gold accent */
+    --accent: 33 55% 48%;
+    --accent-foreground: 36 45% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 25 67% 30%;
+    --border: 28 18% 82%;
+    --input: 28 18% 82%;
+    --ring: 12 32% 28%;
 
-    --radius: 0.25rem;
+    --radius: 0.125rem;
 
-    --gold: 37 47% 60%;
-    --cream: 40 100% 97%;
-    --terracotta: 25 67% 30%;
-    --warm-beige: 33 38% 90%;
-    --charcoal: 0 0% 13%;
+    /* Brand-specific tokens matching store logo */
+    --chocolate: 12 32% 28%;
+    --chocolate-dark: 12 35% 18%;
+    --chocolate-light: 12 22% 38%;
+    --cream: 36 55% 96%;
+    --cream-dark: 33 30% 88%;
+    --gold: 33 55% 48%;
+    --gold-light: 37 60% 62%;
+    --ivory: 40 50% 98%;
+    --charcoal: 20 18% 15%;
+    --warm-beige: 30 28% 91%;
+    --terracotta: 16 45% 35%;
+    --burgundy: 350 40% 30%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -51,33 +63,33 @@
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 20 18% 7%;
     --foreground: 36 45% 93%;
 
-    --card: 0 0% 10%;
+    --card: 20 18% 10%;
     --card-foreground: 36 45% 93%;
 
-    --popover: 0 0% 10%;
+    --popover: 20 18% 10%;
     --popover-foreground: 36 45% 93%;
 
-    --primary: 37 47% 60%;
-    --primary-foreground: 0 0% 7%;
+    --primary: 33 55% 48%;
+    --primary-foreground: 20 18% 7%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 20 12% 15%;
     --secondary-foreground: 36 45% 93%;
 
-    --muted: 0 0% 15%;
+    --muted: 20 12% 15%;
     --muted-foreground: 30 10% 60%;
 
-    --accent: 25 67% 30%;
+    --accent: 12 32% 28%;
     --accent-foreground: 36 45% 93%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 37 47% 60%;
+    --border: 20 10% 18%;
+    --input: 20 10% 18%;
+    --ring: 33 55% 48%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -98,6 +110,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -106,6 +120,12 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Premium selection color */
+  ::selection {
+    background: hsl(33, 55%, 48%, 0.3);
+    color: hsl(20, 18%, 15%);
   }
 }
 
@@ -116,5 +136,29 @@
 
   .font-sans-body {
     font-family: 'Inter', sans-serif;
+  }
+
+  /* Luxury text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(33, 55%, 48%), hsl(37, 60%, 62%), hsl(33, 55%, 48%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium divider */
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(33, 55%, 48%), transparent);
+  }
+
+  /* Subtle grain texture overlay */
+  .grain-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
   }
 }

@@ -2,51 +2,58 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&q=80", alt: "Designer outfit 1", span: "col-span-1 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=600&q=80", alt: "Designer outfit 2", span: "col-span-1" },
-  { src: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=600&q=80", alt: "Designer outfit 3", span: "col-span-1" },
-  { src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80", alt: "Designer outfit 4", span: "col-span-1" },
-  { src: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80", alt: "Designer outfit 5", span: "col-span-1 row-span-2" },
-  { src: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d44?w=600&q=80", alt: "Designer outfit 6", span: "col-span-1" },
+  { src: "/images/gallery-1.png", alt: "Bridal lehenga in red and gold", span: "col-span-1 row-span-2" },
+  { src: "/images/gallery-2.png", alt: "Silk dupatta in teal and gold", span: "col-span-1" },
+  { src: "/images/gallery-3.png", alt: "Pink anarkali suit with embroidery", span: "col-span-1" },
+  { src: "/images/gallery-4.png", alt: "Gold jewelry and silk accessories", span: "col-span-1" },
+  { src: "/images/gallery-5.png", alt: "Navy Banarasi silk saree", span: "col-span-1 row-span-2" },
+  { src: "/images/gallery-6.png", alt: "Mint green churidar with chikankari", span: "col-span-1" },
 ];
 
 const FeaturedGallery = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+    <section className="py-28 md:py-36 px-6 lg:px-16 max-w-7xl mx-auto">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-sans-body mb-4">
-          Handpicked
+        <p className="text-[10px] tracking-[0.4em] uppercase text-gold font-sans-body mb-5">
+          Handpicked Designs
         </p>
-        <h2 className="text-4xl md:text-5xl font-serif text-foreground">
-          Featured Designs
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-6">
+          Featured Collection
         </h2>
+        <div className="divider-gold w-24 mx-auto" />
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[250px] md:auto-rows-[300px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 auto-rows-[220px] md:auto-rows-[280px]">
         {images.map((img, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
+            transition={{ duration: 0.7, delay: i * 0.08, ease: "easeOut" }}
             className={`group relative overflow-hidden ${img.span}`}
           >
             <img
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-chocolate-dark/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+            {/* Hover caption */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <p className="text-[10px] tracking-[0.15em] text-cream/90 font-sans-body uppercase">
+                {img.alt}
+              </p>
+            </div>
           </motion.div>
         ))}
       </div>

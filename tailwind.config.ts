@@ -51,11 +51,25 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(var(--gold))",
-        cream: "hsl(var(--cream))",
-        terracotta: "hsl(var(--terracotta))",
-        "warm-beige": "hsl(var(--warm-beige))",
+        /* Brand palette matched to Shubbam logo */
+        chocolate: {
+          DEFAULT: "hsl(var(--chocolate))",
+          dark: "hsl(var(--chocolate-dark))",
+          light: "hsl(var(--chocolate-light))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        cream: {
+          DEFAULT: "hsl(var(--cream))",
+          dark: "hsl(var(--cream-dark))",
+        },
+        ivory: "hsl(var(--ivory))",
         charcoal: "hsl(var(--charcoal))",
+        "warm-beige": "hsl(var(--warm-beige))",
+        terracotta: "hsl(var(--terracotta))",
+        burgundy: "hsl(var(--burgundy))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -93,6 +107,14 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -100,6 +122,8 @@ export default {
         "fade-up": "fade-up 0.8s ease-out forwards",
         "fade-in": "fade-in 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
+        "shimmer": "shimmer 3s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
       },
     },
   },
